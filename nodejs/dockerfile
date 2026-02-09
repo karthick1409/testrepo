@@ -12,7 +12,7 @@ COPY package*.json ./
 RUN npm install --production
 
 # Copy the rest of the application source code
-COPY . .
+COPY . ./
 
 # Expose the application port
 EXPOSE 5000
