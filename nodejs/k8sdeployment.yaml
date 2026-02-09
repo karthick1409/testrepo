@@ -1,0 +1,34 @@
+k8s/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-app
+        image: yourdockerhubusername/my-node-app:latest
+        ports:
+        - containerPort: 5000
+
+
+k8s/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+spec:
+  type: NodePort
+  selector:
+    app: nodejs-app
+  ports:
+  - port: 5000
+    targetPort: 5000

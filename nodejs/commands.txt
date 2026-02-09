@@ -1,0 +1,39 @@
+git --version
+docker --version
+minikube version
+minikube status
+systemctl status Jenkins
+jenkins --version
+ps -ef | grep Jenkins
+
+kubectl version --client
+kubectl config current-context
+
+kubectl config use-context minikube
+
+dockerfile
+
+docker login
+
+docker build -t my-node-app .
+docker run -p 5000:5000 my-node-app
+
+docker push yourdockerhubusername/my-node-app:latest
+docker tag my-node-app yourdockerhubusername/my-node-app:latest 
+
+
+docker run -p 30007:5000 yourdockerhubusername/my-node-app
+
+kubectl apply -f k8s/pv.yaml
+kubectl apply -f k8s/pvc.yaml
+kubectl apply -f k8s/deployment.yaml
+
+
+kubectl apply -f node-js-sample/network-policy.yaml
+kubectl get networkpolicy
+kubectl label pod <allowed-pod-name> access=allowed
+kubectl exec -it <allowed-pod-name> -- curl http://nodejs-service:5000
+kubectl exec -it <unlabeled-pod-name> -- curl http://nodejs-service:5000
+
+
+

@@ -1,0 +1,27 @@
+k8s/pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nodejs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/nodejs
+
+
+📦 PersistentVolumeClaim
+k8s/pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nodejs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
