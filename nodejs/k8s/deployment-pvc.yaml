@@ -23,5 +23,5 @@ spec:
       volumes:
       - name: nodejs-storage
         persistentVolumeClaim:
-          claimName: nodejs-pvc
+          claimName: persistent_volume_claim
 
