@@ -32,8 +32,13 @@ kubectl apply -f k8s/deployment.yaml
 kubectl apply -f node-js-sample/network-policy.yaml
 kubectl get networkpolicy
 kubectl label pod <allowed-pod-name> access=allowed
+
+kubectl get pods nginx-pod --show-labels
+
+
 kubectl exec -it <allowed-pod-name> -- curl http://nodejs-service:5000
 kubectl exec -it <unlabeled-pod-name> -- curl http://nodejs-service:5000
 
+kubectl label pod  pod/nodejs-app-565f6d75d5-v2bfk access=allowed
 
 

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: persistent_volume_claim
+  name: node-js-pvc
 spec:
   accessModes:
     - ReadWriteOnce
