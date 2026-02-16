@@ -15,21 +15,21 @@ dockerfile
 
 docker login
 
-docker build -t my-node-app .
-docker run -p 5000:5000 my-node-app
+docker build -t node-js-sample .
+docker run -p 5000:5000 node-js-sample
 
-docker push yourdockerhubusername/my-node-app:latest
-docker tag my-node-app yourdockerhubusername/my-node-app:latest 
+docker push karthick1409/node-js-sample:latest
+docker tag node-js-sample karthick1409/node-js-sample:1.0 
 
 
-docker run -p 30007:5000 yourdockerhubusername/my-node-app
+docker run -p 30007:5000 karthick1409/node-js-sample:1.0
 
-kubectl apply -f k8s/pv.yaml
+kubectl apply -f k8s/persistent.volume.yaml
 kubectl apply -f k8s/pvc.yaml
-kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/deplyment.yaml
 
 
-kubectl apply -f node-js-sample/network-policy.yaml
+kubectl apply -f node-js-sample/policy.yaml
 kubectl get networkpolicy
 kubectl label pod <allowed-pod-name> access=allowed
 
