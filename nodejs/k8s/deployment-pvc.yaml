@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: node-js
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejs-app
+      app: node-js
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: node-js
     spec:
       containers:
-      - name: nodejs-app
+      - name: node-js
         image: cloud1409/node-js-sample:1.0
         ports:
         - containerPort: 5000
@@ -23,5 +23,5 @@ spec:
       volumes:
       - name: nodejs-storage
         persistentVolumeClaim:
-          claimName: persistent_volume_claim
+          claimName: node-js-pvc
 

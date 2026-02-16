@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: node-js
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: node-js
@@ -17,3 +17,10 @@ spec:
         image: cloud1409/node-js-sample:1.0
         ports:
         - containerPort: 5000
+        volumeMounts:
+        - name: nodejs-storage
+          mountPath: /usr/src/app/data
+      volumes:
+      - name: nodejs-storage
+        persistentVolumeClaim:
+          claimName: node-js-pvc
